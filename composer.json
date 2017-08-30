@@ -1,0 +1,20 @@
+{
+    "require": {
+        "anax/request": "^1.0",
+        "anax/url": "^1.0",
+        "anax/router": "^1.0",
+        "anax/response": "^1.0",
+        "anax/view": "^1.0",
+        "anax/session": "^1.0",
+        "anax/configure": "^1.0",
+        "anax/textfilter": "^1.0",
+        "symfony/yaml": "^3.3",
+        "mos/cimage": "^0.7.19"
+    },
+    "autoload": {
+        "psr-4": {"Anax\\": "src/"}
+    },
+    "name": "anax/mafd16",
+    "description": "Framework for course ramverk1 at BTH.",
+    "license": "proprietary"
+}
