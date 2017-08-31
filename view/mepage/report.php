@@ -4,9 +4,10 @@
       Här kan du läsa mina rapporter från de olika kursmomenten.
     </h1>
     <p class="subtitle">
-      My first website with <strong>Reports</strong>!
+      Du hittar sub-länkar i navbaren!
     </p>
   </div>
+  <br>
   <div class="container">
       <h2 id="kmom01">
           <a class="header-anchor" href="#kmom01"></a>

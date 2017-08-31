@@ -9,6 +9,8 @@
 
 
 <body>
+    <script src="js/navbar.js"></script>
+
     <nav class="navbar is-transparent">
         <!-- Consists of the logo/link to index.php and the burger.
         Other links in the navbar is created below. -->
@@ -16,7 +18,7 @@
             <!--<a class="navbar-item" href="http://bulma.io">Ramverk1</a>-->
             <a class="navbar-item" href=<?= $app->url->create(); ?>>Martin</a>
 
-            <div class="navbar-burger burger" data-target="navMenubd-example">
+            <div class="navbar-burger burger" data-target="navMenu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -24,14 +26,14 @@
         </div>
 
 
-        <div class="navbar-menu">
+        <div class="navbar-menu"  id="navMenu">
             <div class="navbar-start">
-                <div class="navbar-item is-hoverable">
+                <!--<div class="navbar-item is-hoverable">-->
                     <!--<a class="navbar-link  is-active" href="/documentation/overview/start/">-->
                     <a class="navbar-item " href=<?= $app->url->create("about"); ?>>
                         Om
                     </a>
-                </div>
+                <!--</div>-->
 
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link  is-active" href=<?= $app->url->create("report"); ?>>

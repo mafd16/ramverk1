@@ -27,7 +27,8 @@
             det ger gubbpoäng..).
         </p>
         <br>
-        <img src="image/martin.jpg">
+        <img src="image/martin.JPG">
+        <br>
         <br>
         <p>
             Hmm, känner att jag måste kommentera bilden också. Det händer att jag får
@@ -37,7 +38,7 @@
             en favorit. Bilden ovan är från en Via Ferrata, eller järnväg (fritt översatt).
             Man klättrar alltså på bitvis ganska svåra leder, och är hela tiden säkrad i
             en stålvajer. Ett riktigt bra sätt att testa på lite mer avancerad klättring
-            utan att riskera livet. 
+            utan att riskera livet.
         </p>
     </div>
 
