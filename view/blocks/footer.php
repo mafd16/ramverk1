@@ -20,7 +20,7 @@
             </div>
             <div class="column">
                 <p>Sidan är byggd med hjälp av ramverket
-                <a href="https://github.com/mosbth/Anax-MVC">Anax</a><br>För styling
+                <a href="https://github.com/canax">Anax</a><br>För styling
                 används CSS-ramverket <a href="http://bulma.io/">Bulma</a></p>
 
                 <!--Vi bygger i

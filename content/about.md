@@ -1,3 +1,7 @@
+---
+title: "Om sidan"
+...
+
 <section class="section">
   <div class="container">
     <h1 class="title">
