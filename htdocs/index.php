@@ -19,6 +19,8 @@ $app = require ANAX_INSTALL_PATH . "/config/service.php";
 // Load the routes
 require ANAX_INSTALL_PATH . "/config/route.php";
 
+$app->session->start();
+
 // Leave to router to match incoming request to routes
 $app->router->handle(
     $app->request->getRoute(),

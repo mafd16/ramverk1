@@ -12,6 +12,10 @@ $app->router     = new \Anax\Route\RouterInjectable();
 $app->view       = new \Anax\View\ViewContainer();
 $app->textfilter = new \Anax\TextFilter\TextFilter();
 $app->session    = new \Anax\Session\SessionConfigurable();
+$app->rem        = new \Anax\RemServer\RemServer();
+$app->remController = new \Anax\RemServer\RemServerController();
+$app->com        = new \Mafd16\Comment\CommentModel();
+$app->comController = new \Mafd16\Comment\CommentController();
 
 // Configure request
 $app->request->init();
@@ -34,6 +38,17 @@ $app->url->setDefaultsFromConfiguration();
 // Configure view
 $app->view->setApp($app);
 $app->view->configure("view.php");
+
+// Init REM Server
+$app->rem->configure("remserver.php");
+$app->rem->inject(["session" => $app->session]);
+
+// Init controller for the REM Server
+$app->remController->setApp($app);
+
+// Init controller and model for the Comment system
+$app->comController->setApp($app);
+$app->com->setApp($app);
 
 // Return the populated $app
 return $app;

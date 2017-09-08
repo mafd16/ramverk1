@@ -12,7 +12,10 @@
         "mos/cimage": "^0.7.19"
     },
     "autoload": {
-        "psr-4": {"Anax\\": "src/"}
+        "psr-4": {
+            "Anax\\": "src/",
+            "Mafd16\\": "src/"
+        }
     },
     "name": "anax/mafd16",
     "description": "Framework for course ramverk1 at BTH.",

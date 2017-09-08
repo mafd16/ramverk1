@@ -73,6 +73,51 @@ title: "Rapporter"
         Kmom02
     </h2>
 
+    <h4 class="is-size-5">Vilka tidigare erfarenheter har du av MVC? Använde du någon speciell källa för att läsa på om MVC? Kan du med egna ord förklara någon fördel med kontroller/modell-begreppet, så som du ser på det?</h4>
+
+    <br>
+
+    <p>Mina tidigare erfarenheter sträcker sig, om jag minns rätt, till kursen webapp. Där jobbade vi med MVC. Jag tycker dock att jag har greppat det bättre nu, än under hela webapp-kursen. Jag minns det inte som att vi pratade så mycket teori kring MVC där, utan att vi hoppade rätt in i att koda. Här har vi ändå lärt oss lite mer teoretiskt.</p>
+
+    <p>Mina källor för att läsa på om MVC har främst varit de som föreslås i kursmomentet. Jag tycker det har varit svårt att googla mig till bra information. Jag hade gärna haft mer skriftlig info om de delar som gicks igenom på andra föreläsningen, t.ex. att vyerna inte ska prata med controllern. Det är detaljer som man lär sig så småningom, men är svårt att läsa sig till. Förövrigt så tyckte jag föreläsningen denna veckan var mycket vettig!</p>
+
+    <p>En fördel är att man kan begränsa tillgång till resurser, så att exempelvis vyerna inte har tillgång till modellerna. Det verkar vettigt när man är flera som jobbar med olika delar av ett projekt. Rent generellt så tycker jag också det är en bra uppdelning av kod. Det blir inte för blandat. Var sak på sin plats.</p>
+
+    <br>
+
+    <h4 class="is-size-5">Kom du fram till vad begreppet SOLID innebar och vilka källor använde du? Kan du förklara SOLID på ett par rader med dina egna ord?</h4>
+
+    <br>
+
+    <p>Jag tyckte det var skapligt tydligt, iaf på de wiki-artiklar jag läste. Youtube-filmen var också bra, men i längsta laget för att man ska orka titta på hela. Jag gillade exemplet med ankorna. Om jag ska förklara SOLID med egna ord. </p>
+
+    <ul>
+        <li><b>Single responsibility principle</b> - Att en klass bara ska ha en uppgift, eller kanske rättare sagt ett uppgiftsområde. T.ex. att utföra crud mot en databas. </li>
+        <li><b>Open/closed principle</b> - Klasser ska vara öppna för utökning, men stängda för förändring. Det var väl detta som var ank-exemplet. Om en klass beskriver ankor och ger dom egenskaper att kunna flyga och kvacka, så skulle samma klass behöva modifieras för att beskriva en gummianka, vilket då är en dålig klass.</li>
+        <li><b>Liskov substitution principle</b> - Ett objekt av en klass ska kunna ersättas av ett objekt till en subklass till första nämnda klassen, utan att programmet ändras. Man kan väl säga att subklassen ska utföra åtminstone det som parent-klassen utför. </li>
+        <li><b>Interface segregation principle</b> - Beskriver att man som användare inte ska ha all tillgänglig funktionalitet på en och samma sida. Då blir det lätt rörigt. Bättre att dela upp funktionalitet på olika sidor. </li>
+        <li><b>Dependency inversion principle</b> - Säger ungefär att klasser inte ska vara beroende av varandra, utan av gränssnitt mellan klasserna. </li>
+    </ul>
+
+    <br>
+
+    <h4 class="is-size-5">Gick arbetet med REM servern bra och du lyckades integrera den i din me-sida?</h4>
+
+    <br>
+
+    <p>Ja, det gick finfint! Däremot så ställde den till lite problem när jag började jobba med kommentarsmodulen. Det krånglade med sessionen och förmodligen start av sessionen. Enligt tips så flyttade jag start av sessionen från rem-servern till htdocs/index.php. Därefter fungerade det bra. </p>
+
+    <br>
+
+    <h4 class="is-size-5">Berätta om arbetet med din kommentarsmodul, hur långt har du kommit och hur tänker du?</h4>
+
+    <p>Till en början så hade jag tänkt använda rem-servern för att spara kommentarerna. Det kändes som att det var upplagt för det. Jag gick dock snart över till att spara med hjälp av session-klassen. Jag har fått till en fin MVC-struktur. Jag har två vyer, den första är comment/index där man kan se och skriva kommentarer. På varje postad kommentar finns knappar för att redigera och radera kommentaren. Redigerar man en kommentar så skickas man till den andra vyn, comment/edit. Alla url-er skickar kommandon till controllern. Controllern hämtar upp eventuella post- eller get-variabler och ger direktiv till min model. Därefter skickar controllern data till vyn, och renderar vyn. Det enda jag inte gjort i de frivilliga kraven är punkten om markdown. </p>
+
+    <br>
+
+
+
+
     <hr>
 
     <h2 id="kmom03" class="is-size-3">

@@ -11,6 +11,8 @@
 <body>
     <script src="js/navbar.js"></script>
 
+    <div class="container">
+
     <nav class="navbar is-transparent">
         <!-- Consists of the logo/link to index.php and the burger.
         Other links in the navbar is created below. -->
@@ -36,10 +38,10 @@
                 <!--</div>-->
 
                 <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link  is-active" href=<?= $app->url->create("report"); ?>>
+                    <a class="navbar-link" href=<?= $app->url->create("report"); ?>>
                         Rapporter
                     </a>
-                    <div class="navbar-dropdown ">
+                    <div class="navbar-dropdown is-boxed">
                         <a class="navbar-item " href=<?= $app->url->create("report#kmom01"); ?>>
                             kmom01
                         </a>
@@ -64,8 +66,22 @@
                         <!--<hr class="navbar-divider">-->
                     </div>
                 </div>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <div class="navbar-link"> Uppgifter </div>
+                    <div class="navbar-dropdown is-boxed">
+                        <a class="navbar-item " href=<?= $app->url->create("remserver"); ?>>
+                            Remserver
+                        </a>
+                        <a class="navbar-item " href=<?= $app->url->create("comment"); ?>>
+                            Kommentarssystem
+                        </a>
+                    </div>
+                </div>
+
             </div>
             <div class="navbar-end">
             </div>
         </div>
     </nav>
+</div>
