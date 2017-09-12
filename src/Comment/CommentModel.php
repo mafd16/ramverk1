@@ -2,7 +2,7 @@
 
 namespace Mafd16\Comment;
 
-use \Anax\Common\AppInjectableTrait;
+//use \Anax\Common\AppInjectableTrait;
 use \Anax\Configure\ConfigureInterface;
 use \Anax\Configure\ConfigureTrait;
 
@@ -12,12 +12,12 @@ use \Anax\Configure\ConfigureTrait;
 class CommentModel implements ConfigureInterface
 {
     use ConfigureTrait;
-    use AppInjectableTrait;
+    //use AppInjectableTrait;
 
     /**
      * @var array $session inject a reference to the session.
      */
-    //private $session;
+    private $session;
 
 
 
@@ -37,7 +37,7 @@ class CommentModel implements ConfigureInterface
      */
     public function inject($dependency)
     {
-        $this->session = $dependency["session"];
+        $this->session = $dependency;//["session"];
         return $this;
     }
 
@@ -54,7 +54,8 @@ class CommentModel implements ConfigureInterface
      */
     public function getComments($key)
     {
-        $data = $this->app->session->get($key);
+        //$data = $this->app->session->get($key);
+        $data = $this->session->get($key);
         return $data;
     }
 
@@ -96,8 +97,10 @@ class CommentModel implements ConfigureInterface
         $item = array("name"=>$post["name"], "email"=>$post["email"], "comment"=>$post["comment"]);
         $key = $post["article"];
 
-        if ($this->app->session->has($key)) {
-            $dataset = $this->app->session->get($key);
+        //if ($this->app->session->has($key)) {
+        if ($this->session->has($key)) {
+            //$dataset = $this->app->session->get($key);
+            $dataset = $this->session->get($key);
             // Get max value for the id
             $max = 0;
             foreach ($dataset as $val) {
@@ -111,7 +114,8 @@ class CommentModel implements ConfigureInterface
             $item["id"] = 1;
             $dataset = array($item);
         };
-        $this->app->session->set($key, $dataset);
+        //$this->app->session->set($key, $dataset);
+        $this->session->set($key, $dataset);
     }
 
 
@@ -136,7 +140,8 @@ class CommentModel implements ConfigureInterface
             }
         }
         // Update session
-        $this->app->session->set($comKey, $comments);
+        //$this->app->session->set($comKey, $comments);
+        $this->session->set($comKey, $comments);
     }
 
 
@@ -158,7 +163,8 @@ class CommentModel implements ConfigureInterface
                 break;
             }
         }
-        $this->app->session->set($keyDataset, $dataset);
+        //$this->app->session->set($keyDataset, $dataset);
+        $this->session->set($keyDataset, $dataset);
     }
 
 
@@ -173,7 +179,8 @@ class CommentModel implements ConfigureInterface
      */
     public function saveComments($key, $dataset)
     {
-        $this->app->session->set($key, $dataset);
+        //$this->app->session->set($key, $dataset);
+        $this->session->set($key, $dataset);
         return $this;
     }
 }

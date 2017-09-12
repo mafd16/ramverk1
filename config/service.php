@@ -2,7 +2,7 @@
 /**
  * Add and configure services and return the $app object.
  */
-
+/*
 // Add all resources to $app
 $app = new \Anax\App\App();
 $app->request    = new \Anax\Request\Request();
@@ -52,3 +52,5 @@ $app->com->setApp($app);
 
 // Return the populated $app
 return $app;
+
+*/

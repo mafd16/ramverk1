@@ -2,17 +2,21 @@
 
 namespace Mafd16\Comment;
 
-use \Anax\Common\AppInjectableInterface;
-use \Anax\Common\AppInjectableTrait;
+//use \Anax\Common\AppInjectableInterface;
+//use \Anax\Common\AppInjectableTrait;
+use \Anax\DI\InjectionAwareInterface;
+use \Anax\DI\InjectionAwareTrait;
 
 /**
  * A controller for the Comment System.
  *
  * @SuppressWarnings(PHPMD.ExitExpression)
  */
-class CommentController implements AppInjectableInterface
+//class CommentController implements AppInjectableInterface
+class CommentController implements InjectionAwareInterface
 {
-    use AppInjectableTrait;
+    use InjectionAwareTrait;
+    //use AppInjectableTrait;
 
 
     /**
@@ -25,13 +29,16 @@ class CommentController implements AppInjectableInterface
     {
         $key = "comPage";
         // Get comments from model
-        $comments = $this->app->com->getComments($key);
+        //$comments = $this->app->com->getComments($key);
+        $comments = $this->di->get("com")->getComments($key);
+
         // Add views to a specific region, add comments
-        $this->app->view->add("comment/index", ["comments"=>$comments], "main");
+        //$this->app->view->add("comment/index", ["comments"=>$comments], "main");
+        $this->di->get("view")->add("comment/index", ["comments"=>$comments], "main");
+
         // Render a standard page using layout
-        $this->app->renderPage([
-            "title" => "Kommentarssystem",
-        ]);
+        //$this->app->renderPage([
+        $this->di->get("pageRender")->renderPage(["title" => "Kommentarssystem"]);
     }
 
 
@@ -45,7 +52,8 @@ class CommentController implements AppInjectableInterface
      */
     public function getComment($key, $id)
     {
-        $comment = $this->app->com->getComment($key, $id);
+        //$comment = $this->app->com->getComment($key, $id);
+        $comment = $this->di->get("com")->getComment($key, $id);
         return $comment;
     }
 
@@ -59,13 +67,17 @@ class CommentController implements AppInjectableInterface
     {
         $key = "comPage";
         // Get id-variable from request.
-        $id = $this->app->request->getGet("id");
+        //$id = $this->app->request->getGet("id");
+        $id = $this->di->get("request")->getGet("id");
         // Get the comment from Model.
-        $comment = $this->app->com->getComment($key, $id);
+        //$comment = $this->app->com->getComment($key, $id);
+        $comment = $this->di->get("com")->getComment($key, $id);
         // Add views to a specific region
-        $this->app->view->add("comment/edit", ["comment"=>$comment], "main");
+        //$this->app->view->add("comment/edit", ["comment"=>$comment], "main");
+        $this->di->get("view")->add("comment/edit", ["comment"=>$comment], "main");
         // Render a standard page using layout
-        $this->app->renderPage([
+        //$this->app->renderPage([
+        $this->di->get("pageRender")->renderPage([
             "title" => "Redigera kommentar",
         ]);
     }
@@ -79,7 +91,8 @@ class CommentController implements AppInjectableInterface
     public function editComment()
     {
         // Get post-variables
-        $post = $this->app->request->getPost();
+        //$post = $this->app->request->getPost();
+        $post = $this->di->get("request")->getPost();
         // Instruct Model to edit comment:
         $comKey = "comPage";
         // Edited comment:
@@ -89,10 +102,13 @@ class CommentController implements AppInjectableInterface
             "comment" => $post["comment"],
             "id" => $post["id"]
         ];
-        $this->app->com->updateComment($comKey, $post["id"], $comment);
+        //$this->app->com->updateComment($comKey, $post["id"], $comment);
+        $this->di->get("com")->updateComment($comKey, $post["id"], $comment);
         // Send user back to comment page.
-        $url = $this->app->url->create("comment");
-        $this->app->response->redirect($url);
+        //$url = $this->app->url->create("comment");
+        $url = $this->di->get("url")->create("comment");
+        //$this->app->response->redirect($url);
+        $this->di->get("response")->redirect($url);
     }
 
 
@@ -105,12 +121,15 @@ class CommentController implements AppInjectableInterface
     public function postComment()
     {
         // Catch post variables
-        $post = $this->app->request->getPost();
+        $post = $this->di->get("request")->getPost();
         // Instruct Model to add comment:
-        $this->app->com->addComment($post);
+        //$this->app->com->addComment($post);
+        $this->di->get("com")->addComment($post);
         // Send user back to comment page.
-        $url = $this->app->url->create("comment");
-        $this->app->response->redirect($url);
+        //$url = $this->app->url->create("comment");
+        $url = $this->di->get("url")->create("comment");
+        //$this->app->response->redirect($url);
+        $this->di->get("response")->redirect($url);
     }
 
 
@@ -125,7 +144,8 @@ class CommentController implements AppInjectableInterface
      */
     public function updateComment($key, $id, $comment)
     {
-        $this->app->com->updateComment($key, $id, $comment);
+        //$this->app->com->updateComment($key, $id, $comment);
+        $this->di->get("com")->updateComment($key, $id, $comment);
     }
 
 
@@ -138,11 +158,15 @@ class CommentController implements AppInjectableInterface
     {
         $key = "comPage";
         // Get id-variable from request.
-        $id = $this->app->request->getGet("id");
+        //$id = $this->app->request->getGet("id");
+        $id = $this->di->get("request")->getGet("id");
         // Instruct Model to delete comment:
-        $this->app->com->deleteComment($key, $id);
+        //$this->app->com->deleteComment($key, $id);
+        $this->di->get("com")->deleteComment($key, $id);
         // Send user back to comment page.
-        $url = $this->app->url->create("comment");
-        $this->app->response->redirect($url);
+        //$url = $this->app->url->create("comment");
+        $url = $this->di->get("url")->create("comment");
+        //$this->app->response->redirect($url);
+        $this->di->get("response")->redirect($url);
     }
 }

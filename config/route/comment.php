@@ -7,6 +7,7 @@
  * Route for comment page
  */
 $app->router->add("comment", [$app->comController, "getComments"]);
+//$di->get("router")->add("comment", [$di->get("comController"), "getComments"]);
 
 /**
  * Route for add comment

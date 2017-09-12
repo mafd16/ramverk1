@@ -22,6 +22,16 @@ return [
             "file" => __DIR__ . "/route2/flat-file-content.php",
         ],
         [
+            // For the remserver
+            "mount" => "api",
+            "file" => __DIR__ . "/route2/remserver.php",
+        ],
+        [
+            // For the comment system
+            "mount" => null,
+            "file" => __DIR__ . "/route2/comment.php",
+        ],
+        [
             // Keep this last since its a catch all
             "mount" => null,
             "file" => __DIR__ . "/route2/404.php",
