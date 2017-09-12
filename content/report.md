@@ -111,6 +111,8 @@ title: "Rapporter"
 
     <h4 class="is-size-5">Berätta om arbetet med din kommentarsmodul, hur långt har du kommit och hur tänker du?</h4>
 
+    <br>
+
     <p>Till en början så hade jag tänkt använda rem-servern för att spara kommentarerna. Det kändes som att det var upplagt för det. Jag gick dock snart över till att spara med hjälp av session-klassen. Jag har fått till en fin MVC-struktur. Jag har två vyer, den första är comment/index där man kan se och skriva kommentarer. På varje postad kommentar finns knappar för att redigera och radera kommentaren. Redigerar man en kommentar så skickas man till den andra vyn, comment/edit. Alla url-er skickar kommandon till controllern. Controllern hämtar upp eventuella post- eller get-variabler och ger direktiv till min model. Därefter skickar controllern data till vyn, och renderar vyn. Det enda jag inte gjort i de frivilliga kraven är punkten om markdown. </p>
 
     <br>
@@ -124,6 +126,64 @@ title: "Rapporter"
         <a class="header-anchor" href="#kmom03"></a>
         Kmom03
     </h2>
+
+
+    <h4 class="is-size-5">Hur känns det att jobba med begreppen kring dependency injection, service locator och lazy loading?</h4>
+
+    <br>
+
+    <p>Även om det är några nya begrepp så känns det bra. Jag tror jag översiktligt har greppat vad det är vi håller på med. Kortfattat kan man väl beskriva det med att vi inte hårdkodar in några interfaces, utan istället infogar vi interfaces in i våra klasser. Vidare, om jag förstått det rätt, så laddas klasserna/objekten in först när dom ska användas första gången, och sen så använder man samma instans/objekt om och om igen. Allt känns dock väldigt nytt, och det är lite småknepigt att greppa allt underliggande som sker. Tycker iaf att jag hade skaplig koll på vad jag höll på med när jag gjort övningarna, och satte igång med uppgifterna. </p>
+
+    <br>
+
+    <h4 class="is-size-5">Hur känns det att göra dig av med beroendet till $app, blir $id bättre?</h4>
+
+    <br>
+
+    <p>När man sitter och kodar så känns det som att det inte spelar någon större roll. Jag märker inte av någon vidare besparing i antal kod-rader eller att det skulle bli särskilt enklare. Vinningen tror jag blir om/när man gör förändringar med moduler och klasser som man lägger till eller byter ut. Min känsla är iaf att det blir bättre :)</p>
+
+    <br>
+
+    <h4 class="is-size-5">Hur känns det att återigen göra refaktoring på din me-sida, blir det förbättringar på kodstrukturen, eller bara annorlunda?</h4>
+
+    <br>
+
+    <p>Jag tycker det blir mest samma lika. Visst flyttas lite kod, och ramverket jobbar väl lite annorlunda, men för mig och de delar som jag jobbar med tycker jag inte det blir någon större förändring. Sen skrivs ju delar av koden annorlunda. Då tänker jag t.ex. på routerna och tjänsterna, som nu läggs i en array istället. Jag tycker det funkade bra att refaktorera iaf.</p>
+
+    <br>
+
+    <h4 class="is-size-5">Lyckades du införa begreppen kring DI när du vidareutvecklade ditt kommentarssystem?</h4>
+
+    <br>
+
+    <p>Ja, jo. Jag tror det iaf. Jag har plockat bort mina beroenden till $app, och använder mig nu av $di i kommentarssystemet. Dock så blev det inte någon vidareutveckling av kommentarssystemet, utan det får vara som det är tills nästa kmom. </p>
+
+    <br>
+
+    <h4 class="is-size-5">Påbörjade du arbetet (hur gick det) med databasmodellen eller avvaktar du till kommande kmom?</h4>
+
+    <br>
+
+    <p>Jag avvaktar till kommande kmom. Tycker det är lättare att sätta igång med en uppgift när jag har mer info om vad som ska göras. Jag tycker också det är bra att vi får en liten förvarning om vad som komma skall. Då kan man fundera lite på t.ex. hur databasen ska struktureras, vilka tabeller och kolumner man behöver. Att man är mentalt förberedd helt enkelt. </p>
+
+    <br>
+
+    <h4 class="is-size-5">Allmänna kommentarer kring din me-sida och dess kodstruktur?</h4>
+
+    <br>
+
+    <p>Har inte allt för mycket kommentarer. Har funderat lite på att sätta navbaren ovanför headern, och testade genom att byta plats på kod i layout.php. Tyckte dock att det kändes avigt att göra på det sättet. Ett annat alternativ skulle väl kunna vara att ta bort headern och bygga in den koden i navbaren. Får se om jag gör något åt det framöver. Just nu koncentrerar jag mig på det vi ska göra. Jag följer tipset vi fick i ett kmom, KISS!</p>
+
+    <br>
+
+
+
+
+
+
+
+
+
 
     <hr>
 
