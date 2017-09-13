@@ -107,8 +107,10 @@ return [
             "shared" => true,
             "callback" => function () {
                 $rem = new \Anax\RemServer\RemServer();
-                //$rem->inject($this->get("session"));
                 $rem->injectSession($this->get("session"));
+                // Load default values (and init rem server)
+                $rem->configure("remserver.php");
+                //$rem->init();
                 return $rem;
             }
         ],

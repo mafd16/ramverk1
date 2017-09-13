@@ -29,6 +29,7 @@ $app->setDI($di);
 $di->get("session")->start();
 
 
+
 // Leave to router to match incoming request to routes
 //$app->router->handle(
 //    $app->request->getRoute(),

@@ -129,7 +129,7 @@ class RemServerController implements InjectionAwareInterface
         $entry = json_decode($entry, true);
 
         $item = $this->di->get("rem")->addItem($key, $entry);
-        $this->id->get("response")->sendJson($item);
+        $this->di->get("response")->sendJson($item);
         exit;
     }
 
