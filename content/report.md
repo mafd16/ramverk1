@@ -179,18 +179,59 @@ title: "Rapporter"
 
 
 
-
-
-
-
-
-
     <hr>
 
     <h2 id="kmom04" class="is-size-3">
         <a class="header-anchor" href="#kmom04"></a>
         Kmom04
     </h2>
+
+    <br>
+
+    <h4 class="is-size-5">Hur gick det att integrera formulärhantering och databashantering i ditt kommentarssystem?</h4>
+
+    <br>
+
+    <p>Det har gått skapligt bra, åtminstone i övningarna. Där gick det helt smärtfritt, men i min me-sida fick jag kämpa lite mer. Jag var inte riktigt nöjd med att HTMLForm skapar html åt mig, där jag inte får ut den html jag vill ha. Jag har använt HTMLForm i book-exemplet, men i kommentarssystemet och användarhanteringen valde jag att gå ifrån HTMLForm och skriva mina egna formulär i vyer. Det kanske hade varit en bra idé att skriva om HTMLForm så den blir mer som jag villa ha den, men nu blev det inte så. Jag tyckte också det var riktigt svårt att förstå vad som händer med en funktion som Form->check(). Den gör ju jättemycket. Gillade inte heller beteendet att komma tillbaka till formuläret efter att det postats. T.ex. om jag loggar in så vill jag ju inte komma tillbaka till formuläret, då vill jag komma till profilsidan. </p>
+
+    <p>Att integrera databashanteringen har krånglat lite för mig, men det har löst sig efter inte allt för mycket tragglande. Tror krånglet beror mycket på ovana och att det är nya saker man gör. Kan även skicka med att databashantering på användare och kommentarer borde stå med som ett krav i sista uppgiften. Tror nog man kan missa att skriva kommentarerna till db annars. </p>
+
+    <br>
+
+    <h4 class="is-size-5">Berätta om din syn på Active record och liknande upplägg, ser du fördelar och nackdelar?</h4>
+
+    <br>
+
+    <p>Active record tilltalar mig. Jag kan inte riktigt sätta fingret på vad det är, men kanske att man jobbar mot ett objekt, som man sen bara sparar, och så är det klart! Det känns enkelt. Eventuella fördelar eller nackdelar vet jag inte. Får läsa på om det. </p>
+
+    <br>
+
+    <h4 class="is-size-5">Utveckla din syn på koden du nu har i ramverket och din kommentars- och användarkod. Hur känns det?</h4>
+
+    <br>
+
+    <p>Det första jag tänkte på nu när jag skulle skriva redovisningstext är att min content-mapp innehåller väldigt lite, medans view-mappen växer så det knakar. Jag hade nog gärna haft allt innehåll/alla vyer på samma ställe. men det är en mindre fundering. Upplägget med MVC tycker jag fungerar bra. Det är bara i min användarkod som jag kanske inte fått till det riktigt som jag vill. Där bör nog en del kod flyttas från controller till Model. När det kommer till kommentarskoden, så gick det riktigt enkelt att byta lagring från session till databas, efter att jag fått ordning på de inledande problemen. Fick visserligen ändra lite i mina vyer också, men det var inga större bekymmer. </p>
+
+    <br>
+
+    <h4 class="is-size-5">Om du vill, och har kunskap om, kan du även berätta om din syn på ORM och designmönstret Data Mapper som är närbesläktade med Active Record. Du kanske har erfarenhet av liknande upplägg i andra sammanhang?</h4>
+
+    <br>
+
+    <p>Visserligen har vi jobbat med ORM i någon tidigare kurs om jag nu minns rätt, men jag känner att mina kunskaper om detta ändå är ganska så begränsade. </p>
+
+    <br>
+
+    <h4 class="is-size-5">Vad tror du om begreppet scaffolding, kan det vara något att kika mer på?</h4>
+
+    <br>
+
+    <p>Jag tror det kan vara riktigt bra att ha i verktygslådan! Visserligen kanske en del jobb att få till det till en början, men om man ska använda saker om och om igen så är det nog lätt värt det. </p>
+
+    <br>
+
+
+
 
     <hr>
 
