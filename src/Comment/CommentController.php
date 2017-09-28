@@ -28,13 +28,18 @@ class CommentController implements InjectionAwareInterface
     public function getComments()
     {
         $key = "comPage";
+        //$session = $this->di->get("session");
         // Get comments from model
         //$comments = $this->app->com->getComments($key);
+        //$comments = $this->di->get("com")->getComments($key);
         $comments = $this->di->get("com")->getComments($key);
+        //$comments = $data["comments"];
+        //$comments = $data;
 
         // Add views to a specific region, add comments
         //$this->app->view->add("comment/index", ["comments"=>$comments], "main");
         $this->di->get("view")->add("comment/index", ["comments"=>$comments], "main");
+        //$this->di->get("view")->add("comment/index", ["comments"=>$data["comments"]], "main");
 
         // Render a standard page using layout
         //$this->app->renderPage([
@@ -50,10 +55,10 @@ class CommentController implements InjectionAwareInterface
      *
      * @return void
      */
-    public function getComment($key, $id)
+    public function getComment($id)
     {
         //$comment = $this->app->com->getComment($key, $id);
-        $comment = $this->di->get("com")->getComment($key, $id);
+        $comment = $this->di->get("com")->getComment($id);
         return $comment;
     }
 
@@ -65,13 +70,13 @@ class CommentController implements InjectionAwareInterface
      */
     public function getCommentToEdit()
     {
-        $key = "comPage";
+        //$key = "comPage";
         // Get id-variable from request.
         //$id = $this->app->request->getGet("id");
         $id = $this->di->get("request")->getGet("id");
         // Get the comment from Model.
         //$comment = $this->app->com->getComment($key, $id);
-        $comment = $this->di->get("com")->getComment($key, $id);
+        $comment = $this->di->get("com")->getComment($id);
         // Add views to a specific region
         //$this->app->view->add("comment/edit", ["comment"=>$comment], "main");
         $this->di->get("view")->add("comment/edit", ["comment"=>$comment], "main");
@@ -94,16 +99,17 @@ class CommentController implements InjectionAwareInterface
         //$post = $this->app->request->getPost();
         $post = $this->di->get("request")->getPost();
         // Instruct Model to edit comment:
-        $comKey = "comPage";
+        //$comKey = "comPage";
         // Edited comment:
         $comment = [
+            "user_id" => $post["user_id"],
             "name" => $post["name"],
             "email" => $post["email"],
             "comment" => $post["comment"],
             "id" => $post["id"]
         ];
         //$this->app->com->updateComment($comKey, $post["id"], $comment);
-        $this->di->get("com")->updateComment($comKey, $post["id"], $comment);
+        $this->di->get("com")->updateComment($post["id"], $comment);
         // Send user back to comment page.
         //$url = $this->app->url->create("comment");
         $url = $this->di->get("url")->create("comment");
@@ -142,10 +148,10 @@ class CommentController implements InjectionAwareInterface
      *
      * @return void
      */
-    public function updateComment($key, $id, $comment)
+    public function updateComment($id, $comment)
     {
         //$this->app->com->updateComment($key, $id, $comment);
-        $this->di->get("com")->updateComment($key, $id, $comment);
+        $this->di->get("com")->updateComment($id, $comment);
     }
 
 
@@ -156,13 +162,13 @@ class CommentController implements InjectionAwareInterface
      */
     public function deleteComment()
     {
-        $key = "comPage";
+        //$key = "comPage";
         // Get id-variable from request.
         //$id = $this->app->request->getGet("id");
         $id = $this->di->get("request")->getGet("id");
         // Instruct Model to delete comment:
         //$this->app->com->deleteComment($key, $id);
-        $this->di->get("com")->deleteComment($key, $id);
+        $this->di->get("com")->deleteComment($id);
         // Send user back to comment page.
         //$url = $this->app->url->create("comment");
         $url = $this->di->get("url")->create("comment");

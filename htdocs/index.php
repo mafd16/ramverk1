@@ -26,7 +26,7 @@ $app->setDI($di);
 
 // Start the session
 //$app->session->start();
-$di->get("session")->start();
+//$di->get("session")->start();
 
 
 

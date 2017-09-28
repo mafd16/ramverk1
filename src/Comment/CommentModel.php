@@ -5,19 +5,25 @@ namespace Mafd16\Comment;
 //use \Anax\Common\AppInjectableTrait;
 use \Anax\Configure\ConfigureInterface;
 use \Anax\Configure\ConfigureTrait;
+use \Anax\DI\InjectionAwareInterface;
+use \Anax\Di\InjectionAwareTrait;
+use \Mafd16\Comment\Comments;
 
 /**
  * Comment system.
  */
-class CommentModel implements ConfigureInterface
+class CommentModel implements
+    ConfigureInterface,
+    InjectionAwareInterface
 {
-    use ConfigureTrait;
+    use ConfigureTrait,
+        InjectionAwareTrait;
     //use AppInjectableTrait;
 
     /**
      * @var array $session inject a reference to the session.
      */
-    private $session;
+    //private $session;
 
 
 
@@ -50,13 +56,21 @@ class CommentModel implements ConfigureInterface
      *
      * @param string $key for data subset.
      *
-     * @return array with the dataset
+     * @return object with the dataset
      */
-    public function getComments($key)
+    public function getComments()
     {
-        //$data = $this->app->session->get($key);
-        $data = $this->session->get($key);
-        return $data;
+        // Using session as storage:
+        //$data = $this->session->get($key);
+        //return $data;
+
+        // Using db as storage:
+        // Get users from db
+        $com = new Comments();
+        $com->setDb($this->di->get("db"));
+        $comments = $com->findAll();
+
+        return $comments;
     }
 
 
@@ -68,14 +82,28 @@ class CommentModel implements ConfigureInterface
      *
      * @return array with the comment, name, email, id, or null if not exists
      */
-    public function getComment($key, $id)
+    public function getComment($id)
     {
+        // Using session
         // Get all comments
-        $comments = $this->getComments($key);
+        //$comments = $this->getComments($key);
+        // Get comment with id $id
+        //$comment = null;
+        //foreach ($comments as $key => $val) {
+        //    if ($id == $val["id"]) {
+        //        $comment = $val;
+        //        break;
+        //    }
+        //}
+        //return $comment;
+
+        // Using db
+        $comments = $this->getComments();
         // Get comment with id $id
         $comment = null;
-        foreach ($comments as $key => $val) {
-            if ($id == $val["id"]) {
+        //foreach ($comments as $key => $val) {
+        foreach ($comments as $val) {
+            if ($id == $val->id) {
                 $comment = $val;
                 break;
             }
@@ -94,28 +122,38 @@ class CommentModel implements ConfigureInterface
      */
     public function addComment($post)
     {
-        $item = array("name"=>$post["name"], "email"=>$post["email"], "comment"=>$post["comment"]);
-        $key = $post["article"];
+        // Connect to db
+        $com = new Comments();
+        $com->setDb($this->di->get("db"));
+
+        $com->UserId = $post["id"];
+        $com->UserName = $post["name"];
+        $com->UserEmail = $post["email"];
+        $com->comment = $post["comment"];
+
+        $com->save();
+
+        // Using session
+        //$item = array("user_id"=>$post["id"], "name"=>$post["name"], "email"=>$post["email"], "comment"=>$post["comment"]);
+        //$key = $post["article"];
 
         //if ($this->app->session->has($key)) {
-        if ($this->session->has($key)) {
-            //$dataset = $this->app->session->get($key);
-            $dataset = $this->session->get($key);
+        //if ($this->session->has($key)) {
+            //$dataset = $this->session->get($key);
             // Get max value for the id
-            $max = 0;
-            foreach ($dataset as $val) {
-                if ($max < $val["id"]) {
-                    $max = $val["id"];
-                }
-            }
-            $item["id"] = $max + 1;
-            $dataset[] = $item;
-        } else {
-            $item["id"] = 1;
-            $dataset = array($item);
-        };
-        //$this->app->session->set($key, $dataset);
-        $this->session->set($key, $dataset);
+            //$max = 0;
+            //foreach ($dataset as $val) {
+            //    if ($max < $val["id"]) {
+            //        $max = $val["id"];
+            //    }
+            //}
+            //$item["id"] = $max + 1;
+            //$dataset[] = $item;
+        //} else {
+        //    $item["id"] = 1;
+        //    $dataset = array($item);
+        //};
+        //$this->session->set($key, $dataset);
     }
 
 
@@ -128,20 +166,30 @@ class CommentModel implements ConfigureInterface
      *
      * @return void
      */
-    public function updateComment($comKey, $id, $comment)
+    public function updateComment($id, $comment)
     {
+        // Connect to db
+        $com = new Comments();
+        $com->setDb($this->di->get("db"));
+        // Get comment
+        $com->find("id", $id);
+        // Update comment
+        $com->comment = $comment["comment"];
+        // Save
+        $com->save();
+
+        // Using session
         // Get all the comments
-        $comments = $this->getComments($comKey);
+        //$comments = $this->getComments($comKey);
         // Replace old comment with new
-        foreach ($comments as $key => $value) {
-            if ($value["id"] == $id) {
-                $comments[$key] = $comment;
-                break;
-            }
-        }
+        //foreach ($comments as $key => $value) {
+        //    if ($value["id"] == $id) {
+        //        $comments[$key] = $comment;
+        //        break;
+        //    }
+        //}
         // Update session
-        //$this->app->session->set($comKey, $comments);
-        $this->session->set($comKey, $comments);
+        //$this->session->set($comKey, $comments);
     }
 
 
@@ -153,18 +201,30 @@ class CommentModel implements ConfigureInterface
      *
      * @return void
      */
-    public function deleteComment($keyDataset, $id)
+    public function deleteComment($id)
     {
-        $dataset = $this->getComments($keyDataset);
+        // Connect to db
+        $com = new Comments();
+        $com->setDb($this->di->get("db"));
+        // Get comment
+        $com->find("id", $id);
+        // Delete (Update) comment
+        $com->deleted = date("Y-m-d H:i:s");
+        // Save
+        $com->save();
+
+
+        // Using session
+        //$dataset = $this->getComments($keyDataset);
         // Find the comment if it exists
-        foreach ($dataset as $key => $val) {
-            if ($id == $val["id"]) {
-                unset($dataset[$key]);
-                break;
-            }
-        }
+        //foreach ($dataset as $key => $val) {
+        //    if ($id == $val["id"]) {
+        //        unset($dataset[$key]);
+        //        break;
+        //    }
+        //}
         //$this->app->session->set($keyDataset, $dataset);
-        $this->session->set($keyDataset, $dataset);
+        //$this->session->set($keyDataset, $dataset);
     }
 
 
@@ -177,10 +237,9 @@ class CommentModel implements ConfigureInterface
      *
      * @return self
      */
-    public function saveComments($key, $dataset)
-    {
-        //$this->app->session->set($key, $dataset);
-        $this->session->set($key, $dataset);
-        return $this;
-    }
+    //public function saveComments($dataset)
+    //{
+        //$this->session->set($key, $dataset);
+        //return $this;
+    //}
 }

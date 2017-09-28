@@ -9,7 +9,8 @@
 
 
 <body>
-    <script src="js/navbar.js"></script>
+    <script src="<?= $di->url->create("js/navbar.js") ?>"></script>
+    <!--<script src="js/navbar.js"></script>-->
 
     <div class="container">
 
@@ -76,12 +77,53 @@
                         <a class="navbar-item " href=<?= $app->url->create("comment"); ?>>
                             Kommentarssystem
                         </a>
+                        <a class="navbar-item " href=<?= $app->url->create("book"); ?>>
+                            Books
+                        </a>
                     </div>
                 </div>
 
             </div>
+
             <div class="navbar-end">
+            <?php if (!$di->get("session")->has("my_user_id")) : ?>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <div class="navbar-link"> Profil </div>
+                    <div class="navbar-dropdown is-boxed">
+                        <a class="navbar-item " href=<?= $app->url->create("user/login"); ?>>
+                            Logga in
+                        </a>
+                        <a class="navbar-item " href=<?= $app->url->create("user/create"); ?>>
+                            Skapa konto
+                        </a>
+                    </div>
+                </div>
+            <?php else : ?>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <div class="navbar-link"> Profil </div>
+                    <div class="navbar-dropdown is-boxed">
+                        <a class="navbar-item " href=<?= $app->url->create("user/profile"); ?>>
+                            Profilsida
+                        </a>
+                        <a class="navbar-item " href=<?= $app->url->create("user/update"); ?>>
+                            Uppdatera konto
+                        </a>
+                        <?php if ($di->get("session")->get("my_user_admin")) : ?>
+                            <a class="navbar-item " href=<?= $app->url->create("user/admin"); ?>>
+                                Hantera användare
+                            </a>
+                        <?php endif ?>
+                        <a class="navbar-item " href=<?= $app->url->create("user/logout"); ?>>
+                            Logga ut
+                        </a>
+                    </div>
+                </div>
+
+
+
+            <?php endif; ?>
             </div>
+
         </div>
     </nav>
 </div>

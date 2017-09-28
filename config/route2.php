@@ -32,6 +32,16 @@ return [
             "file" => __DIR__ . "/route2/comment.php",
         ],
         [
+            // Add routes from userController and mount on user/
+            "mount" => "user",
+            "file" => __DIR__ . "/route2/userController.php",
+        ],
+        [
+            // Add routes from bookController and mount on book/
+            "mount" => "book",
+            "file" => __DIR__ . "/route2/bookController.php",
+        ],
+        [
             // Keep this last since its a catch all
             "mount" => null,
             "file" => __DIR__ . "/route2/404.php",

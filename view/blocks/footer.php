@@ -13,10 +13,11 @@
                 <a href="https://twitter.com/bthinformation">twitter</a></p>
             </div>
             <div class="column">
-                <p>Kontakta mig!<br>Åk till Örebro. Tag avfart 113. Sväng
+                <a href="mailto:dummy@gmail.com">Kontakta mig!</a>
+                <!--<p>Kontakta mig!<br>Åk till Örebro. Tag avfart 113. Sväng
                 höger (söderifrån) / vänster (norrifrån). Tag andra höger. Parkera.
                 Gå till nummer 13 (inte långt från Netto). Ring på dörren. Är jag
-                inte hemma? Ring mig på telefonen. Jag finns på eniro.</p>
+                inte hemma? Ring mig på telefonen. Jag finns på eniro.</p>-->
             </div>
             <div class="column">
                 <p>Sidan är byggd med hjälp av ramverket

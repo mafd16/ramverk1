@@ -25,9 +25,10 @@ class App
         //$data["stylesheets"] = ["css/style.css"];
 
         $data["stylesheets"] = [
-            //"css/style.css"
+            //"css/style.css",
             "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
             "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css"
+            //"css/style.css"
             //"css/remserver.css"
         ];
 
