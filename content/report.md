@@ -238,7 +238,55 @@ title: "Rapporter"
     <h2 id="kmom05" class="is-size-3">
         <a class="header-anchor" href="#kmom05"></a>
         Kmom05
-     </h2>
+    </h2>
+
+    <br>
+
+    <h4 class="is-size-5">Hur gick arbetet med att lyfta ut koden ur me-sidan och placera i en egen modul?</h4>
+
+    <br>
+
+    <p>Jag tycker det gick bra. Hade lite funderingar på hur mycket som faktiskt tillhörde kommentarssystemet, men fick klart för mig att även användar-delen tillhör. Kravet att man måste vara inloggad för att kunna kommentera avgjorde. Annars tror jag inte det strulade något alls faktiskt. </p>
+
+    <br>
+
+    <h4 class="is-size-5">Flöt det på bra med GitHub och kopplingen till Packagist?</h4>
+
+    <br>
+
+    <p>Jadå! Jag missade lite med att sätta rätt tag enligt rekommendationerna i artikeln Semantic versioning. Jag satte version 1.0.0 direkt innan jag hade en stable version. Men nu lärde jag mig nog bättre än om jag gjort rätt istället. </p>
+
+    <br>
+
+    <h4 class="is-size-5">Hur gick det att åter installera modulen i din me-sida med composer, kunde du följa du din installationsmanual?</h4>
+
+    <br>
+
+    <p>Jag hade testat ett par gånger på en test-installation av anax att installera min modul. Det gick bra då. När jag sen skulle installera i min me-sida så fanns ju redan den gamla koden där. Jag började med att lyfta bort gammal kod, och sen installera modulen enligt mina anvisningar. Jag ominstallerade dock inte databasen, utan den fick ligga kvar sedan tidigare. Sammanfattningsvis så gick det enkelt iaf. </p>
+
+    <p>Sen så körde jag composer update också, och fick problem med att bara innehållet i main-wrap visades. På något sätt så användes nu pagerender i anax/page istället för den pagerender som ligger i App sedan tidigare. Jag hittade inte hur styrningen görs mot vilken funktion som används, så jag fick lägga in footer, header, navbar och stylesheets i anax/page's pagerender. </p>
+
+    <br>
+
+    <h4 class="is-size-5">Hur väl lyckas du enhetstesta din modul och hur mycket kodtäckning fick du med?</h4>
+
+    <br>
+
+    <p>Först så hade jag jättesvårt att komma igång. Skapade ett par enkla funktioner att testa bara för att få unittesterna att fungera. Sen satte jag upp en test-databas att testa mot. Det tog dock ett bra tag innan jag klurat ut hur jag skulle köra mot test-databasen. Nu när jag väl kommit upp på banan med testerna så känns det relativt lätt att skriva fler testfall. Hittills har jag bara testat lite mot min kommentars-model. Räknar vi lines så är jag uppe i 11.27%, och räknar vi funktioner och metoder så är jag uppe i 15.62%. </p>
+
+    <br>
+
+    <h4 class="is-size-5">Några reflektioner över skillnaden med och utan modul?</h4>
+
+    <br>
+
+    <p>När man precis skrivit koden för kommentarssystemet så tycker jag inte det är någon större skillnad. Resultatet mot användaren blev ju detsamma. Den stora vinsten blir nästa gång man ska använda sig av ett kommentarssystem, exempelvis i ett mindre projekt. </p>
+
+    <br>
+
+
+
+
 
      <hr>
 

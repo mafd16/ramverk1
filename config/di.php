@@ -133,8 +133,6 @@ return [
             "shared" => true,
             "callback" => function () {
                 $com = new \Mafd16\Comment\CommentModel();
-                //$com->inject($this->get("session"));
-                //$com->inject($this->get("db"));
                 $com->setDI($this);
                 return $com;
             }
@@ -150,7 +148,7 @@ return [
         "userController" => [
             "shared" => true,
             "callback" => function () {
-                $obj = new \Anax\User\UserController();
+                $obj = new \Mafd16\User\UserController();
                 $obj->setDI($this);
                 return $obj;
             }
