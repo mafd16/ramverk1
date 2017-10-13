@@ -295,6 +295,52 @@ title: "Rapporter"
         Kmom06
     </h2>
 
+
+    <br>
+
+
+    <h4 class="is-size-5">Har du någon erfarenhet av automatiserade tester och CI sedan tidigare?</h4>
+
+    <br>
+
+    <p>Min erfarenhet av automatiserade tester sträcker sig enbart till det som vi gjort i tidigare kurser. CI är helt nytt för mig. Det var dock väldigt kul och motiverande. Att jaga badges och kodtäckning är riktigt kul. </p>
+
+    <br>
+
+    <h4 class="is-size-5">Hur ser du på begreppen, bra, onödigt, nödvändigt, tidskrävande?</h4>
+
+    <br>
+
+    <p>Jag tycker det verkar jättebra! Det känns som att man ganska ofta bestämmer sig för att skriva om kod (se nedan), och att då ha automatik som testar att man inte tar sönder något är ju perfekt. Visst stjäl det lite tid, men det får man nog tillbaka i att testerna hittar felen, och att man besparas felsökning. Om man skriver testerna parallellt med sin vanliga kod så går det ändå ganska snabbt. Då är man inne i tänket kring vad sin kod gör, och att skriva några test-rader tar inte allt för lång tid. </p>
+
+    <br>
+
+    <h4 class="is-size-5">Hur stor kodtäckning lyckades du uppnå i din modul?</h4>
+
+    <br>
+
+    <p>Jag fick ihop 32%. Till en början visste jag inte hur jag skulle testa min commentController, och fast jag nu har lite mocking-idéer på hur jag skulle kunna testa den, så känner jag inte att jag har tiden. När det kommer till min User-klass så hade jag inte skrivit min kod särskilt bra ur ett MVC-perspektiv. När jag skulle testa den så gick det nästan inte alls. Efter en massa tragglande så bestämde jag mig för att skriva om koden i model / controller. Därefter var det inga problem att testa min model. Både userModel och commentModel är testade till 100%. Under omskrivningen fick jag även ett låsnings-problem med databasen (sqlite på fil) som jag testade mot. Skrev då även om mot att testa mot sqlite i minnet. Därefter hade jag inga sådana problem. </p>
+
+    <br>
+
+    <h4 class="is-size-5">Berätta hur det gick att integrera mot de olika externa tjänsterna?</h4>
+
+    <br>
+
+    <p>Det gick helt utan problem! Tjänsterna har löst integrationen på ett mycket snyggt sätt tycker jag. Sen var det kul också. Jag integrerade mot travis, circleci, scrutinizer och slinsight. </p>
+
+    <br>
+
+    <h4 class="is-size-5">Vilken extern tjänst uppskattade du mest, eller har du förslag på ytterligare externa tjänster att använda?</h4>
+
+    <br>
+
+    <p>Jag gillar nog Scrutinizer och SLInsight bäst. Dom gav på ett tydligt sätt tips på hur man kan förbättra sin kod. Scrutinizer är kul också som ger både betyg och kodtäckning. Några andra tjänster än de nämnda ovan har jag inte testat. </p>
+
+    <br>
+
+
+
     <hr>
 
     <h2 id="kmom10" class="is-size-3">

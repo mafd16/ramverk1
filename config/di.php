@@ -145,11 +145,20 @@ return [
                 return $comController;
             }
         ],
+        "user" => [
+            "shared" => true,
+            "callback" => function () {
+                $obj = new \Mafd16\User\UserModel();
+                $obj->setDI($this);
+                return $obj;
+            }
+        ],
         "userController" => [
             "shared" => true,
             "callback" => function () {
                 $obj = new \Mafd16\User\UserController();
                 $obj->setDI($this);
+                $obj->setUp();
                 return $obj;
             }
         ],
