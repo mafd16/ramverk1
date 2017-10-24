@@ -347,6 +347,62 @@ title: "Rapporter"
         <a class="header-anchor" href="#kmom10"></a>
         Kmom10
     </h2>
+
+    <br>
+
+
+    <h4 class="is-size-5">Krav 1, 2, 3: Grunden</h4>
+
+    <br>
+    <p>Min sida har temat "Allt om Disney", och är en kopia av stack overflow. Som besökare av sidan kan man titta runt och läsa frågor, svar och kommentarer. Men för att kunna skriva frågor, svar och kommentarer så måste man logga in efter att man skapat ett konto. Det finns en hel del användare redan, bland annat admin, admin och doe, doe. Användare som är admin kan skapa och redigera andra användare, och vanliga användare kan redigera sin egen profil. Bland annat kan ort, födelsedatum och slogan fyllas i. Användarens bild är en gravatar, som default är ett monster. </p>
+
+    <p>Första sidan visar de 5 senaste frågorna, de 9 populäraste taggarna och de 6 mest aktiva användarna. Sidan questions visar alla frågor, och länk till att skriva frågor. Klickar man på en tagg så visar sidan questions bara de frågor som har den taggen. Klickar man på en frågas titel så ser man hela frågan. Där kan man läsa frågan, och läsa och skriva svar och kommentarer i markdown. Varje inlägg är markerat med författare och tidpunkt. Tillvägagångssättet bör vara ganska självförklarande, och liknar det på stack overflow. </p>
+
+    <p>Sidan Tags innehåller alla taggar. Man ser hur många gånger varje tag är använd. Klickar man på en tag så kommer man till de frågor som har den taggen. Varje fråga kan ha max 3 taggar. När man sätter taggar (skriver fråga) så ges förslag på redan existerande taggar. </p>
+
+    <p>Sidan Users innehåller alla användare. Klickar man på en användare så ser man info om användaren, tillsammans med användarens frågor, och de frågor som användaren besvarat. Här finns också info om antalet kommentarer. Antalet frågor, svar och kommentarer ligger till grund för hur aktiv en användare räknas. </p>
+
+    <p>Det finns även en about-sida, och sidor för inloggning, skapa konto, och admin-sidor. Sidan finns på github under mafd16/curious-george och innehåller en fin readme. Github-sidan är kopplad till Travis och Scrutinizer. </p>
+
+    <br>
+
+
+    <h4 class="is-size-5">Krav 4: Frågor (optionell)</h4>
+
+    <br>
+
+    <p>En användare som skrivit en fråga, har intill svaren på frågan en länk i form av en check-ikon. Klickar frågeställaren på denna så markeras svaret som accepterat. Håller man musen över länken/markören så ges förklaring. Andra användare kan sen se att svaret är markerat som accepterat. För varje fråga så kan flera svar accepteras. </p>
+
+    <p>Varje inlägg som skrivs kan röstas på. Alla användare kan visserligen rösta fler gånger på allt, men grundfunktionen finns där. Detta ligger till grund för den sortering som kan göras av svaren på en fråga. Svaren är sorterade efter tidpunkt, men kan även sorteras efter rang (antalet röster). Första-sidan och questions-sidan visar för varje fråga hur många svar den har, och vilken rang den har. </p>
+
+    <br>
+
+    <h4 class="is-size-5">Skriv ett allmänt stycke om hur projektet gick att genomföra. Problem/lösningar/strul/enkelt/svårt/snabbt/lång tid, etc. Var projektet lätt eller svårt? Tog det lång tid? Vad var svårt och vad gick lätt? Var det ett bra och rimligt projekt för denna kursen?</h4>
+
+    <br>
+
+    <p>Överlag så har projektet gått väldigt bra. Det har varit en klar fördel att ha sitt kommentarssystem med kodbas sedan tidigare, men trots det så har jag skrivit om en hel del kod, och även skrivit en hel del ny kod. Bland annat så valde jag att ha skilda tabeller för fråga, svar, kommentar, och även egna kontroller och model för de tre. Jag valde också att lyfta ut vyerna ur comment-modulen. </p>
+
+    <p>Ett problem var hur jag skulle få tag i de frågor som en användare svarat på. Jag insåg inte eller förstod inte hur jag skulle kunna skriva mer avancerad sql-kod i Active record, så det fick bli en lösning där jag först hämtade alla svaren som en användare skrivit, och sen för varje svar hämtade rätt fråga, och tog bort eventuella dubletter. </p>
+
+    <p>Fick även problem kvällen innan inlämning, då mina användares lösenord slutade fungera. Hittade iaf att det berodde på att lösenordet skrevs över när andra fält uppdaterades. Är inte helt nöjd med min design, men känner mig även lite begränsad med det stylesheetet jag använt mig av. Det har varit jättebra i många fall, men ibland har det mer blivit en begränsning. </p>
+
+    <p>Jag tycker det är ett rimligt projekt för kursen, som tar lagom mycket tid. Det bör gå att fixa godkänt om man har tidspress, och det går att lägga riktigt mycket tid för högre betyg. </p>
+
+    <br>
+
+
+    <h4 class="is-size-5">Avsluta med ett sista stycke med dina tankar om kursen och vad du anser om materialet och handledningen (ca 5-10 meningar). Ge feedback till lärarna och förslå eventuella förbättringsförslag till kommande kurstillfällen. Är du nöjd/missnöjd? Kommer du att rekommendera kursen till dina vänner/kollegor? På en skala 1-10, vilket betyg ger du kursen?</h4>
+
+    <br>
+
+    <p>Jag känner att mina (och förmodligen de andra studenternas) kunskaper nu har kommit upp så pass bra att materialet och handledningen inte längre är lika viktigt. Det är fortfarande såklart viktigt, men jag och andra hittar nog vägar runt och tar hjälp av varandra för att hitta lösningar. Det är kul. Artiklarna tycker jag håller hög klass, och handledningen finns där, men blir mindre tydlig (vilket inte är dåligt). Bra dock att ni är så pass aktiva i forum, chatt, hangout som ni är. Känns som att hjälpen alltid finns nära.</p>
+
+    <p>Kursen har har varit bra med sitt mvc-tänk, trots att det smugit sig in någon tankevurpa som direkt motsäger sig mvc-tänket, med modeller som producerar vyer. Just att strukturera sin kod med mvc har jag gillat skarpt. Jag är nöjd med kursen och ger den en 8 av 10. </p>
+
+
+
+
     </div>
 </section>
 </body>
